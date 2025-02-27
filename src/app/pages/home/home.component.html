@@ -1,9 +1,20 @@
-<h1 class="m-4">Todos los personajes</h1>
-<div class="px-2 px-md-5">
+<header>
+  <div class="px-2 px-md-5">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" height="120px" width="auto" alt="">
+    <div class="row">
+      <div class="col-12 col-md-7">
+        <!-- buscador -->
+        <app-character-search (searchChanged)="onSearchChanged($event)"></app-character-search>
+      </div>
+      <div class="col-12 col-md-5">
+        Favorites
+      </div>
+    </div>
+  </div>
+</header>
+<div class="px-2 px-md-5 scroll">
   <div class="row">
     <div class="col-12 col-md-7">
-      <!-- buscador -->
-      <app-character-search (searchChanged)="onSearchChanged($event)"></app-character-search>
       <!-- tabla -->
       <app-character-list
           [nameFilter]="nameFilter"

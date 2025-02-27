@@ -4,3 +4,23 @@ p{
 .mat-mdc-cell.mdc-data-table__cell.cdk-cell.nombre.cdk-column-name.mat-column-name{
     padding-left: 1rem !important;
 }
+img{
+    height: 15rem;
+    width: auto;
+}
+.card1, .card2, .card3, .card4{
+    padding: 0.5rem;
+    color: var(--negro); 
+}
+.card1{
+    background-color: var(--amarilloPastel);
+   }
+   .card2{
+       background-color: var(--secondary-color);
+   }
+   .card3{
+       background-color: var(--celeste);
+   }
+   .card4{
+       background-color: var(--lila);
+   }

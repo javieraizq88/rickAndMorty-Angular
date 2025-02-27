@@ -1,0 +1,7 @@
+header{
+    position: static;
+}
+.scroll{
+    height: 100%;
+    overflow: scroll;
+}
