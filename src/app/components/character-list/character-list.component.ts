@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CharacterService } from '../../services/character.service';
 import { Character } from '../../interfaces/character';
 import { MatTableDataSource } from '@angular/material/table';
@@ -18,70 +18,47 @@ export class CharacterListComponent implements OnInit {
   dataSource = new MatTableDataSource<Character>();
 
   @ViewChild(MatSort) sort!: MatSort;
+  
+  @Input() nameFilter: string = '';
+  @Input() speciesFilter: string = '';
+  @Input() genderFilter: string = '';
+  @Input() statusFilter: string[] = [];
 
-  nameFilter = new FormControl(''); // Campo de búsqueda por nombre
-  speciesFilter = new FormControl(''); // Campo de búsqueda por especie
-  genderFilter = new FormControl(''); // Campo de búsqueda por género
-  statusForm: FormGroup; // Campo de búsqueda por estado
-  statusFormControl: FormControl = new FormControl([]); 
   noResults = false; // cuando no hay resultados de busqueda
   activeFilters: string[] = [];
 
-  constructor(
-    private characterService: CharacterService, 
-    private fb: FormBuilder
-  ) { 
-    this.statusForm = this.fb.group({ // Inicializa el formulario
-      status: this.statusFormControl 
-    });
-  }
+  constructor( private characterService: CharacterService ) { }
+  
   ngOnInit(): void {
     this.getCharacters(); // Carga los personajes iniciales
-    this.setupFilterListeners(); // Configura los listeners de los filtros
+  }
+  ngOnChanges(): void {
+    this.getCharacters();
   }
 
   getCharacters(): void {
-    const name = this.nameFilter.value || undefined; // Obtiene el valor de nombre
-    const species = this.speciesFilter.value || undefined; // Obtiene el valor de especie
-    const gender = this.genderFilter.value || undefined; // Obtiene el valor de género
-    const status = this.statusForm.get('status')?.value; // Obtiene los estados seleccionados
+    this.activeFilters = [];
+    if (this.nameFilter) this.activeFilters.push('name');
+    if (this.speciesFilter) this.activeFilters.push('species');
+    if (this.genderFilter) this.activeFilters.push('gender');
+    if (this.statusFilter && this.statusFilter.length > 0) this.activeFilters.push('status');
 
-    this.activeFilters = []; // Restablece los filtros activos
-    if (name) this.activeFilters.push('name');
-    if (species) this.activeFilters.push('species');
-    if (gender) this.activeFilters.push('gender');
-    if (status && status.length > 0) this.activeFilters.push('status');
 
     this.characterService
-      .getCharacters(name, species, gender, status) // Pasa el valor de nombre, especie, genero y status al servicio
-      .pipe(
-        catchError(() => {
-          this.noResults = true;
-          this.dataSource.data = [];
-          return of({ results: [] });
-        })
-      )
-      .subscribe((data) => {
-        if (data && data.results) {
-          this.dataSource.data = data.results;
-          this.dataSource.sort = this.sort;
-          this.noResults = data.results.length === 0;
-        }
-      });
-  }
-
-  setupFilterListeners(): void {
-    this.nameFilter.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged()) // Escucha los cambios en el filtro de nombre
-      .subscribe(() => this.getCharacters());
-    this.speciesFilter.valueChanges // Escucha los cambios en el filtro de especie
-      .pipe(debounceTime(400), distinctUntilChanged())
-      .subscribe(() => this.getCharacters());
-    this.genderFilter.valueChanges // Escucha los cambios en el filtro de género
-      .pipe(debounceTime(400), distinctUntilChanged())
-      .subscribe(() => this.getCharacters());
-      this.statusFormControl.valueChanges // Usa statusFormControl.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged())
-      .subscribe(() => this.getCharacters());
+    .getCharacters(this.nameFilter, this.speciesFilter, this.genderFilter, this.statusFilter)
+    .pipe(
+      catchError(() => {
+        this.noResults = true;
+        this.dataSource.data = [];
+        return of({ results: [] });
+      })
+    )
+    .subscribe((data) => {
+      if (data && data.results) {
+        this.dataSource.data = data.results;
+        this.dataSource.sort = this.sort;
+        this.noResults = data.results.length === 0;
+      }
+    });
   }
 }

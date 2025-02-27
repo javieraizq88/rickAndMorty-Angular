@@ -1,28 +1,3 @@
-<mat-form-field>
-  <mat-label>Nombre</mat-label>
-  <input matInput [formControl]="nameFilter" />
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Estado</mat-label>
-  <mat-select [formControl]="statusFormControl" multiple>
-    <mat-option value="Alive">Alive</mat-option>
-    <mat-option value="Dead">Dead</mat-option>
-    <mat-option value="unknown">unknown</mat-option>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Especie</mat-label>
-  <input matInput [formControl]="speciesFilter" />
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Género</mat-label>
-  <input matInput [formControl]="genderFilter" />
-</mat-form-field>
-
-<!-- tabla -->
 <table mat-table [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
@@ -63,10 +38,10 @@
     <b>Ups!</b> No hay resultados de búsqueda con
   </span>
   <div class="d-grid">
-    <span *ngIf="activeFilters.includes('name')">Nombre: {{ nameFilter.value }}</span>
-    <span *ngIf="activeFilters.includes('status')">Estado: {{ statusForm.get('status')?.value }}</span>
-    <span *ngIf="activeFilters.includes('species')">Especie: {{ speciesFilter.value }}</span>
-    <span *ngIf="activeFilters.includes('gender')">Género: {{ genderFilter.value }}</span>
+    <span *ngIf="activeFilters.includes('name')">Nombre: {{ nameFilter }}</span>
+    <span *ngIf="activeFilters.includes('species')">Especie: {{ speciesFilter }}</span>
+    <span *ngIf="activeFilters.includes('gender')">Género: {{ genderFilter }}</span>
+    <span *ngIf="activeFilters.includes('status')">Estado: {{ statusFilter }}</span>
   </div>
   <p class="mb-0 mt-2"><span class="text-uppercase font-weight-bold">Importante:</span> Las búsquedas deben ser en inglés</p>
 </div>

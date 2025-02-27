@@ -1,14 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --input-bg-color: rgb(234, 234, 234);
+    --primero-bg-color: #e4a788;
+    --segundo-bg-color: #f0e14a;
+    --tercero-bg-color: #97ce4c;
+    --caurto-bg-color: 	#e89ac7;
+    --quinto-bg-color: rgb(40, 40, 40);
+    --buscador-bg-color: black;
+  }
+
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color:  var(--quinto-bg-color) !important;
+    color: white;
+}
 
 .d-grid{
     display: grid !important;
 }
+
 /* edicion Angular Material */
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled){
-    background-color: rgb(234, 234, 234) !important;
+    background-color: var(--segundo-bg-color) !important;
 }
 
+.bg-buscador{
+    background-color: var(--buscador-bg-color);
+    color: white;
+}

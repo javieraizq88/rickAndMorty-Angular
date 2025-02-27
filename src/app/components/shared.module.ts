@@ -10,10 +10,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { CharacterSearchComponent } from './character-search/character-search.component';
 
 @NgModule({
   declarations: [
-    CharacterListComponent
+    CharacterListComponent,
+    CharacterSearchComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatCheckboxModule,
     MatSelectModule,
+    CharacterSearchComponent,
   ]
 })
 export class SharedModule { }
