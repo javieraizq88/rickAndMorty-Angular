@@ -4,15 +4,15 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CharactersComponent } from './characters/characters.component';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CharactersComponent,
+    
     HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
