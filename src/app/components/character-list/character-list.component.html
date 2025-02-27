@@ -1,31 +1,31 @@
-<table mat-table [dataSource]="dataSource" matSort>
+<table mat-table [dataSource]="dataSource" matSort class="table-responsive">
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+    <td mat-cell *matCellDef="let element" class="nombre">{{ element.name }}</td>
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
     <td mat-cell *matCellDef="let element">{{ element.status }}</td>
   </ng-container>
 
   <ng-container matColumnDef="species">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Especie</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Species</th>
     <td mat-cell *matCellDef="let element">{{ element.species }}</td>
   </ng-container>
 
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
     <td mat-cell *matCellDef="let element">{{ element.type }}</td>
   </ng-container>
 
   <ng-container matColumnDef="gender">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Género</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
     <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
   </ng-container>
 
   <ng-container matColumnDef="created">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Creado</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Created</th>
     <td mat-cell *matCellDef="let element">{{ element.created | date }}</td>
   </ng-container>
   
@@ -49,10 +49,10 @@
     <b>Ups!</b> No hay resultados de búsqueda con
   </span>
   <div class="d-grid">
-    <span *ngIf="activeFilters.includes('name')">Nombre: {{ nameFilter }}</span>
-    <span *ngIf="activeFilters.includes('species')">Especie: {{ speciesFilter }}</span>
-    <span *ngIf="activeFilters.includes('gender')">Género: {{ genderFilter }}</span>
-    <span *ngIf="activeFilters.includes('status')">Estado: {{ statusFilter }}</span>
+    <span *ngIf="activeFilters.includes('name')">Name: {{ nameFilter }}</span>
+    <span *ngIf="activeFilters.includes('species')">Species: {{ speciesFilter }}</span>
+    <span *ngIf="activeFilters.includes('gender')">Gender: {{ genderFilter }}</span>
+    <span *ngIf="activeFilters.includes('status')">Status: {{ statusFilter }}</span>
   </div>
   <p class="mb-0 mt-2"><span class="text-uppercase font-weight-bold">Importante:</span> Las búsquedas deben ser en inglés</p>
 </div>

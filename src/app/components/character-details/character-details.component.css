@@ -1,0 +1,6 @@
+p{
+    margin: 0;
+}
+.mat-mdc-cell.mdc-data-table__cell.cdk-cell.nombre.cdk-column-name.mat-column-name{
+    padding-left: 1rem !important;
+}

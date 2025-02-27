@@ -2,40 +2,52 @@
     <span class="d-flex justify-content-center mb-4 contenedor-img">
       <img [src]="character.image" alt="Imagen de {{character.name}}" />
     </span>
-    <h3>{{character.name}}</h3>
-    <p>Estado: {{character.status}}</p>
-    <p>Especie: {{character.species}}</p>
-    <p>Género: {{character.gender}}</p>
-  
-    <h3>Origen</h3>
+<div class="row">
+  <div class="col-12 col-md-6 pr-0">
+    <h4 class="card1">General Data</h4>
+    <p>Name: {{character.name}}</p>
+    <p>Status: {{character.status}}</p>
+    <p>Species: {{character.species}}</p>
+    <p>Gender: {{character.gender}}</p>
+  </div>
+  <div class="col-12 col-md-6 pr-0">
+    <h4 class="card2">Origen</h4>
     <div *ngIf="origin">
-      <p>Nombre: {{origin.name}}</p>
-      <p>Tipo: {{origin.type}}</p>
-      <p>Dimensión: {{origin.dimension}}</p>
-      <p>Residente: {{originResident?.name || 'No tiene'}}</p>
+      <p>Name: {{origin.name}}</p>
+      <p>Type: {{origin.type}}</p>
+      <p>Location: {{origin.dimension}}</p>
+      <p>Another resident: {{originResident?.name || 'doesnt have'}}</p>
     </div>
     <div *ngIf="!origin">
-      <p>No tiene origen</p>
+      <p>The residence is unknown</p>
     </div>
-  
-    <h3>Localización</h3>
+  </div>
+
+  <div class="col-12 col-md-6 mt-4 pr-0">
+    <h4 class="card3">Location</h4>
     <div *ngIf="location">
-      <p>Nombre: {{location.name}}</p>
-      <p>Tipo: {{location.type}}</p>
-      <p>Dimensión: {{location.dimension}}</p>
-      <p>Residente: {{locationResident?.name || 'No tiene'}}</p>
+      <p>Name: {{location.name}}</p>
+      <p>Type: {{location.type}}</p>
+      <p>Dimention: {{location.dimension}}</p>
+      <p>Another resident: {{locationResident?.name || 'doesnt have'}}</p>
     </div>
     <div *ngIf="!location">
-      <p>No tiene localización</p>
+      <p>The location is unknown</p>
     </div>
-  
-    <h3>Episodio</h3>
+  </div>
+  <div class="col-12 col-md-6 mt-4 pr-0">
+    <h4 class="card4">Episode</h4>
     <div *ngIf="episode">
-      <p>Nombre: {{episode.name}}</p>
-      <p>Fecha de emisión: {{episode.air_date}}</p>
-      <p>Episodio: {{episode.episode}}</p>
+      <p>Name: {{episode.name}}</p>
+      <p>Air date: {{episode.air_date}}</p>
+      <p>Episode: {{episode.episode}}</p>
     </div>
     <div *ngIf="!episode">
-      <p>No tiene episodio</p>
+      <p>It doesn't appear in any episode</p>
     </div>
+
+  </div>
+  </div>
+  
+  
   </div>

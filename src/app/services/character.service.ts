@@ -23,7 +23,7 @@ export class CharacterService {
       params = params.set('gender', gender);
     }
     if (status && status.length > 0) {
-      params = params.set('status', status.join(',')); // Une los estados con comas
+      params = params.set('status', status.join(',')); // Une los Statuss con comas
     }
 
     return this.http.get<any>(this.apiUrl, { params });

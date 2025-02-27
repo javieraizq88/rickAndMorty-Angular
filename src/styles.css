@@ -1,41 +1,78 @@
 :root {
-    --primero-color: #e89ac7;
-    --segundo-color: #e4a788;
-    --tercero-color: #87d1db;
-    --caurto-color: #1e0c0c;
-    --quinto-color: #303032;
-  }
+    --primary-color: #e89ac7;
+    --secondary-color: #e4a788;
+    --celeste: #87d1db;
+    --gris: #1e0c0c;
+    --negro: #303032;
+    --amarilloPastel: #ecf0a6;
+    --lila: #9baaf2;
+}
 
 html, body { height: 100%; }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color:  var(--quinto-color) !important;
+    background-color:  var(--negro) !important;
     color: white;
 }
+
+
+/* edicion Angular Material */
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: var(--celeste) !important;
+}
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0 0 0 0.7rem !important;
+}
+
+.mat-mdc-row, .mdc-data-table__content{
+    font-size: 0.8rem !important;
+}
+/* FIN edicion Angular Material */
+
+
 .d-grid{
     display: grid !important;
 }
 .bg-buscador{
-    background-color: var(--caurto-color);
+    background-color: var(--gris);
     color: white;
 }
 .contenedor-img{
-    background-color: var(--quinto-color);
+    background-color: var(--negro);
 }
 .btn-primary{
-    background-color: var(--primero-color);
-    border-color: var(--primero-color);
-}
-
-/* edicion Angular Material */
-.mdc-text-field--filled:not(.mdc-text-field--disabled){
-    background-color: var(--tercero-color) !important;
-}
-.mdc-data-table__cell, .mdc-data-table__header-cell {
-    padding: 0 0.7rem !important;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 .saberMas{
     padding: 0.7rem !important;
 }
+.card1, .card2, .card3, .card4{
+    padding: 0.5rem;
+    color: var(--negro); 
+}
+.card1{
+ background-color: var(--amarilloPastel);
+}
+.card2{
+    background-color: var(--secondary-color);
+}
+.card3{
+    background-color: var(--celeste);
+}
+.card4{
+    background-color: var(--lila);
+}
 
+@media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+    h2{
+        font-size: 1.55rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+  }

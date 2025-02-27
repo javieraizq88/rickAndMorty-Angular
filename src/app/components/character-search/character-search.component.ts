@@ -9,10 +9,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
   styleUrl: './character-search.component.css'
 })
 export class CharacterSearchComponent implements OnInit {
-  nameFilter = new FormControl(''); // Campo de búsqueda por nombre
-  speciesFilter = new FormControl(''); // Campo de búsqueda por especie
-  genderFilter = new FormControl(''); // Campo de búsqueda por género
-  statusForm: FormGroup; // Campo de búsqueda por estado
+  nameFilter = new FormControl(''); // Campo de búsqueda por Name
+  speciesFilter = new FormControl(''); // Campo de búsqueda por Species
+  genderFilter = new FormControl(''); // Campo de búsqueda por Gender
+  statusForm: FormGroup; // Campo de búsqueda por Status
   statusFormControl: FormControl = new FormControl([]);
 
   @Output() searchChanged = new EventEmitter<{ 
@@ -34,11 +34,11 @@ export class CharacterSearchComponent implements OnInit {
 
   setupFilterListeners(): void {
     this.nameFilter.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged()) // Escucha los cambios en el filtro de nombre
+      .pipe(debounceTime(400), distinctUntilChanged()) // Escucha los cambios en el filtro de Name
       .subscribe(() => this.emitSearchChange());
 
     this.speciesFilter.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged()) // Escucha los cambios en el filtro de especies
+      .pipe(debounceTime(400), distinctUntilChanged()) // Escucha los cambios en el filtro de Speciess
       .subscribe(() => this.emitSearchChange());
 
     this.genderFilter.valueChanges

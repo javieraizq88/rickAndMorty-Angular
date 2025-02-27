@@ -1,18 +1,18 @@
-<div class="card text-white bg-buscador mb-3 px-4">
+<div class=" text-white bg-buscador mx-4 mb-4 py-2 mb-md-3 px-4">
   <div class="card-header">
-    <h2 class="mb-0">Buscador de personajes</h2>
+    <h2 class="mb-0">Search Character</h2>
   </div>
-
-  <div class="row row-cols-6 row-cols-md-4 mt-3">
+  
+  <div class="row row-cols row-cols-md-4 mt-3">
     <div class="col d-flex justify-content-center">
       <mat-form-field>
-        <mat-label>Nombre</mat-label>
+        <mat-label>Name</mat-label>
         <input matInput [formControl]="nameFilter" />
       </mat-form-field>
     </div>
     <div class="col d-flex justify-content-center">
       <mat-form-field>
-        <mat-label>Estado</mat-label>
+        <mat-label>Status</mat-label>
         <mat-select [formControl]="statusFormControl" multiple>
           <mat-option value="Alive">Alive</mat-option>
           <mat-option value="Dead">Dead</mat-option>
@@ -22,13 +22,13 @@
     </div>
     <div class="col d-flex justify-content-center">
       <mat-form-field>
-        <mat-label>Especie</mat-label>
+        <mat-label>Species</mat-label>
         <input matInput [formControl]="speciesFilter" />
       </mat-form-field>
     </div>
     <div class="col d-flex justify-content-center">
       <mat-form-field>
-        <mat-label>Género</mat-label>
+        <mat-label>Gender</mat-label>
         <input matInput [formControl]="genderFilter" />
       </mat-form-field>
     </div>

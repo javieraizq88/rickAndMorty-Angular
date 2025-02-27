@@ -15,7 +15,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'; // Importa el icon
 
 export class CharacterListComponent implements OnInit {
   faSearch = faSearch; 
-  displayedColumns: string[] = ['name', 'status', 'species', 'type', 'gender', 'created', 'actions']; // Agrega 'actions'
+  displayedColumns: string[] = ['name', 'status', 'species', 'type', 'gender', 'created', 'actions']; 
   dataSource = new MatTableDataSource<Character>();
   selectedCharacter: Character | null = null;
   @ViewChild(MatSort) sort!: MatSort;
