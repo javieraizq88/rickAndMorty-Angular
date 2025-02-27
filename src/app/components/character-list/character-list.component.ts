@@ -3,8 +3,7 @@ import { CharacterService } from '../../services/character.service';
 import { Character } from '../../interfaces/character';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { FormControl, FormBuilder, FormGroup } from '@angular/forms'; 
-import { debounceTime, distinctUntilChanged, catchError, of } from 'rxjs';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-character-list',
@@ -26,6 +25,7 @@ export class CharacterListComponent implements OnInit {
 
   noResults = false; // cuando no hay resultados de busqueda
   activeFilters: string[] = [];
+  loading = false;
 
   constructor( private characterService: CharacterService ) { }
   
@@ -37,6 +37,7 @@ export class CharacterListComponent implements OnInit {
   }
 
   getCharacters(): void {
+    this.loading = true; 
     this.activeFilters = [];
     if (this.nameFilter) this.activeFilters.push('name');
     if (this.speciesFilter) this.activeFilters.push('species');
@@ -50,6 +51,7 @@ export class CharacterListComponent implements OnInit {
       catchError(() => {
         this.noResults = true;
         this.dataSource.data = [];
+        this.loading = false; // loading en false en caso de error
         return of({ results: [] });
       })
     )
@@ -59,6 +61,7 @@ export class CharacterListComponent implements OnInit {
         this.dataSource.sort = this.sort;
         this.noResults = data.results.length === 0;
       }
+      this.loading = false; // Establece loading en false después de recibir los resultados
     });
   }
 }

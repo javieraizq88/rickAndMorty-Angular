@@ -33,6 +33,9 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+
+<mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+
 <div *ngIf="noResults" class="alert alert-danger mt-4" role="alert">
   <span>
     <b>Ups!</b> No hay resultados de búsqueda con
