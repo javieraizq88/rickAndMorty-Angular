@@ -8,7 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
+    MatSelectModule,
   ],
   exports: [
     CharacterListComponent,
@@ -33,6 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
+    MatSelectModule,
   ]
 })
 export class SharedModule { }
