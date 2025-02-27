@@ -1,6 +1,9 @@
 # RickAndMorty
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+## Librerias
+Angular Material
+Bootstrap
+fortawesome/angular-fontawesome
 
 ## Development server
 

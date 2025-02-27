@@ -4,6 +4,7 @@ import { Character } from '../../interfaces/character';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { catchError, of } from 'rxjs';
+import { faSearch } from '@fortawesome/free-solid-svg-icons'; // Importa el icono de lupa
 
 @Component({
   selector: 'app-character-list',
@@ -13,9 +14,10 @@ import { catchError, of } from 'rxjs';
 })
 
 export class CharacterListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'status', 'species', 'type', 'gender', 'created'];
+  faSearch = faSearch; 
+  displayedColumns: string[] = ['name', 'status', 'species', 'type', 'gender', 'created', 'actions']; // Agrega 'actions'
   dataSource = new MatTableDataSource<Character>();
-
+  selectedCharacter: Character | null = null;
   @ViewChild(MatSort) sort!: MatSort;
   
   @Input() nameFilter: string = '';
@@ -44,7 +46,6 @@ export class CharacterListComponent implements OnInit {
     if (this.genderFilter) this.activeFilters.push('gender');
     if (this.statusFilter && this.statusFilter.length > 0) this.activeFilters.push('status');
 
-
     this.characterService
     .getCharacters(this.nameFilter, this.speciesFilter, this.genderFilter, this.statusFilter)
     .pipe(
@@ -63,5 +64,9 @@ export class CharacterListComponent implements OnInit {
       }
       this.loading = false; // Establece loading en false después de recibir los resultados
     });
+  }
+
+  selectCharacter(character: Character): void { 
+    this.selectedCharacter = character;
   }
 }

@@ -11,11 +11,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { CharacterSearchComponent } from './character-search/character-search.component';
+import { CharacterDetailsComponent } from './character-details/character-details.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     CharacterListComponent,
-    CharacterSearchComponent
+    CharacterSearchComponent,
+    CharacterDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +31,7 @@ import { CharacterSearchComponent } from './character-search/character-search.co
     ReactiveFormsModule,
     MatCheckboxModule,
     MatSelectModule,
+    FontAwesomeModule
   ],
   exports: [
     CharacterListComponent,
@@ -41,6 +45,8 @@ import { CharacterSearchComponent } from './character-search/character-search.co
     MatCheckboxModule,
     MatSelectModule,
     CharacterSearchComponent,
+    CharacterDetailsComponent
+
   ]
 })
 export class SharedModule { }

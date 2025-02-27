@@ -1,0 +1,41 @@
+<div *ngIf="character">
+    <span class="d-flex justify-content-center mb-4 contenedor-img">
+      <img [src]="character.image" alt="Imagen de {{character.name}}" />
+    </span>
+    <h3>{{character.name}}</h3>
+    <p>Estado: {{character.status}}</p>
+    <p>Especie: {{character.species}}</p>
+    <p>Género: {{character.gender}}</p>
+  
+    <h3>Origen</h3>
+    <div *ngIf="origin">
+      <p>Nombre: {{origin.name}}</p>
+      <p>Tipo: {{origin.type}}</p>
+      <p>Dimensión: {{origin.dimension}}</p>
+      <p>Residente: {{originResident?.name || 'No tiene'}}</p>
+    </div>
+    <div *ngIf="!origin">
+      <p>No tiene origen</p>
+    </div>
+  
+    <h3>Localización</h3>
+    <div *ngIf="location">
+      <p>Nombre: {{location.name}}</p>
+      <p>Tipo: {{location.type}}</p>
+      <p>Dimensión: {{location.dimension}}</p>
+      <p>Residente: {{locationResident?.name || 'No tiene'}}</p>
+    </div>
+    <div *ngIf="!location">
+      <p>No tiene localización</p>
+    </div>
+  
+    <h3>Episodio</h3>
+    <div *ngIf="episode">
+      <p>Nombre: {{episode.name}}</p>
+      <p>Fecha de emisión: {{episode.air_date}}</p>
+      <p>Episodio: {{episode.episode}}</p>
+    </div>
+    <div *ngIf="!episode">
+      <p>No tiene episodio</p>
+    </div>
+  </div>
