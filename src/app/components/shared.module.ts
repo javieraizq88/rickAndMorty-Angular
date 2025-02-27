@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CharacterListComponent,
@@ -30,6 +32,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }
