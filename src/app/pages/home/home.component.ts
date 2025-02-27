@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { RickAndMortyService } from '../../services/rick-and-morty.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +6,6 @@ import { RickAndMortyService } from '../../services/rick-and-morty.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
-  characters: any[] = [];
+export class HomeComponent {
 
-  constructor(private rickAndMortyService: RickAndMortyService) { }
-
-  ngOnInit(): void {
-    this.rickAndMortyService.getCharacters().subscribe(data => {
-      this.characters = data.results;
-    });
-  }
 }
