@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Character } from '../../interfaces/character';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faChevronUp, faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
