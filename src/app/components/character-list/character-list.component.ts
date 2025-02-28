@@ -1,10 +1,10 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { CharacterService } from '../../services/character.service';
 import { Character } from '../../interfaces/character';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { catchError, of } from 'rxjs';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'; // Importa el icono de lupa
+import { faSearch, faStar, faStarHalfAlt, faStar as faRegularStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-character-list',
@@ -14,10 +14,11 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'; // Importa el icon
 })
 
 export class CharacterListComponent implements OnInit {
-  faSearch = faSearch; 
-  displayedColumns: string[] = ['name', 'status', 'species', 'type', 'gender', 'created', 'actions']; 
+
+  displayedColumns: string[] = ['name', 'status', 'species', 'type', 'gender', 'created', 'actions'];
   dataSource = new MatTableDataSource<Character>();
   selectedCharacter: Character | null = null;
+
   @ViewChild(MatSort) sort!: MatSort;
   
   @Input() nameFilter: string = '';
@@ -28,7 +29,7 @@ export class CharacterListComponent implements OnInit {
   noResults = false; // cuando no hay resultados de busqueda
   activeFilters: string[] = [];
   loading = false;
-
+  
   constructor( private characterService: CharacterService ) { }
   
   ngOnInit(): void {
@@ -66,7 +67,22 @@ export class CharacterListComponent implements OnInit {
     });
   }
 
-  selectCharacter(character: Character): void { 
+  // $$$ boton favorito 
+  @Output() favoriteToggled = new EventEmitter<Character>();
+  faSearch = faSearch;
+  faStar = faStar;
+  faRegularStar = faRegularStar;
+
+  selectCharacter(character: Character): void {
+    if (this.selectedCharacter) {
+      this.selectedCharacter.isSelected = false;
+    }
     this.selectedCharacter = character;
+    character.isSelected = !character.isSelected;
+  }
+
+  toggleFavorite(character: Character): void {
+    character.isFavorite = !character.isFavorite;
+    this.favoriteToggled.emit(character);
   }
 }

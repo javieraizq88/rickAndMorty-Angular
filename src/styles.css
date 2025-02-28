@@ -1,12 +1,16 @@
 :root {
     --primary-color: #e89ac7;
-    --secondary-color: #e4a788;
+    --secondary-color: #f3930b;
+    --secondary-color_hover: #92632a;
     --celeste: #87d1db;
     --gris: #303032;
     --negro: #1b1616;
     --amarilloPastel: #ecf0a6;
     --lila: #9baaf2;
     --amarillo: #ffcc00;
+    --verde: #51ff00;
+    --warning: #94f963;
+    --warning-color_hover:#60a85f;
 }
 
 html, body { 
@@ -31,10 +35,11 @@ body {
 .d-grid{
     display: grid !important;
 }
-.btn-primary{
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+
+button{
+    cursor: pointer !important;
 }
+  
 @media only screen and (max-width: 600px) {
     h1 {
       font-size: 2rem;
