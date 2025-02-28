@@ -1,13 +1,13 @@
 <div class="d-none d-md-block ">
   <div class="text-white bg-favorite py-2 px-4 mb-md-3 mx-md-0">
     <div class="card-header">
-      <h2>Favorite</h2>
+      <h2>Favorite Character</h2>
     </div>
     <div class="favorite-buttons-container">
       <div class="pb-4 mt-3 flex-nowrap overflow-auto">
         <span *ngFor="let favorite of favoriteCharacters">
           <button type="button" class="btn btn-favorite mx-2">
-         <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }} 
+            <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }}
           </button>
         </span>
       </div>
@@ -23,8 +23,8 @@
   <div class="collapse" id="collapseExample" (show.bs.collapse)="isCollapsed = false"
     (hide.bs.collapse)="isCollapsed = true">
     <div class="bg-favorite__collapse" *ngFor="let favorite of favoriteCharacters">
-      <button type="button" class="btn btn-favorite">
-        <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }} 
+      <button type="button" class="btn btn-favorite" >
+        <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }}
       </button>
     </div>
   </div>

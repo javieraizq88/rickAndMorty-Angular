@@ -2,3 +2,9 @@
     background-color: var(--negro);
     color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    .d-grid {
+        display: grid;
+    }
+}

@@ -14,6 +14,7 @@ import { CharacterSearchComponent } from './character-search/character-search.co
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CharacterFavoriteComponent } from './character-favorite/character-favorite.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { CharacterFavoriteComponent } from './character-favorite/character-favor
     ReactiveFormsModule,
     MatCheckboxModule,
     MatSelectModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   exports: [
     CharacterListComponent,
