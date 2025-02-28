@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { Character } from '../../interfaces/character';
 import { Location } from '../../interfaces/location';
 import { Episode } from '../../interfaces/episode';
 import { LocationService } from '../../services/location.service';
 import { EpisodeService } from '../../services/episode.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-character-details',
@@ -21,8 +22,11 @@ export class CharacterDetailsComponent implements OnInit {
 
   constructor(
     private locationService: LocationService,
-    private episodeService: EpisodeService
-  ) {}
+    private episodeService: EpisodeService,
+    @Inject(MAT_DIALOG_DATA) public data: { character: Character }
+  ) {
+    this.character = data.character;
+  }
 
   ngOnInit(): void {
     if (this.character) {
