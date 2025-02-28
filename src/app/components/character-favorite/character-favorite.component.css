@@ -2,7 +2,6 @@
     .d-grid {
         display: grid;
     }
-
     .btn-favorite__collapse {
         background-color: var(--secondary-color);
         display: flex;
@@ -14,12 +13,10 @@
     .btn-favorite {
         margin: 0.5rem 3rem
     }
-
     .bg-favorite__collapse {
         background-color: var(--secondary-color);
     }
 }
-
 
 .bg-favorite {
     background-color: var(--secondary-color);

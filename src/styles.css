@@ -40,8 +40,6 @@ body {
 /* FIN edicion Angular Material */
 
 
-
-
 @media only screen and (max-width: 600px) {
     h1 {
         font-size: 2rem;
@@ -87,8 +85,6 @@ body {
     background-color: #63f8fb;
     border-color: #63f8fb;
 }
-
-
 .btn-more:hover {
     background-color: var(--primary-color_hover);
     border-color: var(--primary-color_hover);
@@ -99,10 +95,6 @@ body {
     border-color: var(--primary-color);
     color: white;
 }
-
-
-
-
 button {
     cursor: pointer !important;
 }
