@@ -1,5 +1,6 @@
 :root {
     --primary-color: #e89ac7;
+    --primary-color_hover: #9f7e91;
     --secondary-color: #f3930b;
     --secondary-color_hover: #92632a;
     --celeste: #87d1db;
@@ -42,9 +43,6 @@ body {
     display: grid !important;
 }
 
-button {
-    cursor: pointer !important;
-}
 
 @media only screen and (max-width: 600px) {
     h1 {
@@ -58,4 +56,55 @@ button {
     p {
         font-size: 1rem;
     }
+}
+
+.btn-favorite:hover {
+    background-color: var(--warning-color_hover);
+    border-color: var(--warning-color_hover);
+    color: var(--gris) !important;
+}
+.btn-favorite {
+    background-color: var(--warning);
+    border-color: var(--warning);
+    color: var(--gris) !important;
+    font-weight: bold;
+}
+
+.btn-noFavorite:hover {
+    background-color: var(--secondary-color_hover);
+    border-color: var(--secondary-color_hover);
+    color: white;
+}
+.btn-noFavorite {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-noMore:hover {
+    background-color: #53abeee7;
+    border-color: #53abeee7;
+}
+.btn-noMore {
+    background-color: #63f8fb;
+    border-color: #63f8fb;
+}
+
+
+.btn-more:hover {
+    background-color: var(--primary-color_hover);
+    border-color: var(--primary-color_hover);
+    color: white;
+}
+.btn-more {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+
+
+
+button {
+    cursor: pointer !important;
 }

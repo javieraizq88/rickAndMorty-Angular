@@ -1,0 +1,7 @@
+.bg-favorite{
+    background-color: var(--secondary-color);
+}
+h2{
+    color: var(--gris);
+
+}
