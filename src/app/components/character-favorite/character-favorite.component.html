@@ -6,7 +6,7 @@
     <div class="favorite-buttons-container">
       <div class="pb-4 mt-3 flex-nowrap overflow-auto">
         <span *ngFor="let favorite of favoriteCharacters">
-          <button type="button" class="btn btn-favorite mx-2" (click)="openDialog(favorite)">
+          <button type="button" class="btn btn-favorite mx-2">
             <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }}
           </button>
         </span>
@@ -23,7 +23,7 @@
   <div class="collapse" id="collapseExample" (show.bs.collapse)="isCollapsed = false"
     (hide.bs.collapse)="isCollapsed = true">
     <div class="bg-favorite__collapse" *ngFor="let favorite of favoriteCharacters">
-      <button type="button" class="btn btn-favorite" (click)="openDialog(favorite)">
+      <button type="button" class="btn btn-favorite" >
         <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }}
       </button>
     </div>

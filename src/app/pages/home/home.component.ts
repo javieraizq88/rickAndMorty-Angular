@@ -16,7 +16,7 @@ export class HomeComponent {
   genderFilter: string = '';
   statusFilter: string[] = [];
   favoriteCharacters: Character[] = [];
-
+  
   onSearchChanged(filters: any): void {
     this.nameFilter = filters.name;
     this.speciesFilter = filters.species;

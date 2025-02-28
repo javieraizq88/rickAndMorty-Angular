@@ -35,7 +35,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCheckboxModule,
     MatSelectModule,
     FontAwesomeModule,
-    MatDialogModule
   ],
   exports: [
     CharacterListComponent,
