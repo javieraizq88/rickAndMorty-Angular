@@ -15,15 +15,27 @@
     }
     .bg-favorite__collapse {
         background-color: var(--secondary-color);
+        display: grid;
     }
 }
 
 .bg-favorite {
     background-color: var(--secondary-color);
-    display: grid;
+    min-width: 120px;
 }
 
 h2 {
     color: var(--gris);
 
 }
+
+.favorite-buttons-container {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .row.flex-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
