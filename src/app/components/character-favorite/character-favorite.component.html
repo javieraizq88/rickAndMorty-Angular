@@ -1,37 +1,28 @@
-
-<div class="d-none d-md-block">
+<!-- vista web -->
+<div class="d-none d-md-block ">
   <div class="text-white bg-favorite py-2 px-4 mb-md-3 mx-md-0">
-      <div class="card-header">
-          <h2>Favorite</h2>
-        </div>
-        <div class="row row-cols row-cols-md-4 mt-3">
-          <div class="col d-flex justify-content-center" *ngFor="let favorite of favoriteCharacters">
-              <button type="button" class="btn btn-favorite">
-                  {{ favorite.name }}
-              </button>
-          </div>
-        </div>
+    <div class="card-header">
+      <h2>Favorite</h2>
+    </div>
+    <div class="row row-cols row-cols-md-4 mt-3">
+      <div class="col d-flex justify-content-center" *ngFor="let favorite of favoriteCharacters">
+        <button type="button" class="btn btn-favorite">
+          {{ favorite.name }}
+        </button>
+      </div>
+    </div>
   </div>
 </div>
-
+<!-- vista mobile -->
 <div class="d-grid d-md-none mx-4 mb-4 py-2">
-  <button 
-    class="btn btn-favorite__collapse" 
-    type="button" 
-    data-toggle="collapse" 
-    data-target="#collapseExample" 
-    aria-expanded="false" 
-    aria-controls="collapseExample"
-    (click)="isCollapsed = !isCollapsed"
-  >
+  <button class="btn btn-favorite__collapse" type="button" data-toggle="collapse" data-target="#collapseExample"
+    aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsed = !isCollapsed">
     <h2 class="mb-0">Favorite </h2>
     <fa-icon [icon]="isCollapsed ? faChevronDown : faChevronUp"></fa-icon>
   </button>
-  <div class="collapse" id="collapseExample"
-    (show.bs.collapse)="isCollapsed = false"
-    (hide.bs.collapse)="isCollapsed = true"
-  >
-    <div class="bg-favorite" *ngFor="let favorite of favoriteCharacters">
+  <div class="collapse" id="collapseExample" (show.bs.collapse)="isCollapsed = false"
+    (hide.bs.collapse)="isCollapsed = true">
+    <div class="bg-favorite__collapse" *ngFor="let favorite of favoriteCharacters">
       <button type="button" class="btn btn-favorite">
         {{ favorite.name }}
       </button>

@@ -39,9 +39,7 @@ body {
 
 /* FIN edicion Angular Material */
 
-.d-grid {
-    display: grid !important;
-}
+
 
 
 @media only screen and (max-width: 600px) {

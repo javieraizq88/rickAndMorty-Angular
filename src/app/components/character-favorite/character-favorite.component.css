@@ -1,17 +1,8 @@
-.bg-favorite {
-    background-color: var(--secondary-color);
-}
-
-h2 {
-    color: var(--gris);
-
-}
-
-.bg-favorite {
-    display: grid;
-}
-
 @media only screen and (max-width: 600px) {
+    .d-grid {
+        display: grid;
+    }
+
     .btn-favorite__collapse {
         background-color: var(--secondary-color);
         display: flex;
@@ -23,5 +14,19 @@ h2 {
     .btn-favorite {
         margin: 0.5rem 3rem
     }
+
+    .bg-favorite__collapse {
+        background-color: var(--secondary-color);
+    }
+}
+
+
+.bg-favorite {
+    background-color: var(--secondary-color);
+    display: grid;
+}
+
+h2 {
+    color: var(--gris);
 
 }
