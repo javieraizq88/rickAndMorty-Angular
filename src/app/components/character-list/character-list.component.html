@@ -14,7 +14,7 @@
     <td mat-cell *matCellDef="let element">{{ element.species }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="type"> 
+  <ng-container matColumnDef="type">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
     <td mat-cell *matCellDef="let element">{{ element.type }}</td>
   </ng-container>
@@ -28,44 +28,37 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Created</th>
     <td mat-cell *matCellDef="let element">{{ element.created | date }}</td>
   </ng-container>
-  
+
+  <!-- botones -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef class="text-center pl-md-0">More</th>
     <td mat-cell *matCellDef="let element" class="saberMas">
-      <!-- boton más info -->
-      <button 
-        mat-fab 
-        (click)="selectCharacter(element)" 
-        aria-label="More information" 
-        type="button" 
+      <!-- boton saberMas -->
+      <button mat-fab (click)="selectCharacter(element)" aria-label="More information" type="button"
         class="btn btn-primary actions-button"
-        [ngClass]="{'btn-primary': !element.isSelected, 'btn-tertiary': element.isSelected}" 
-      >
+        [ngClass]="{'btn-primary': !element.isSelected, 'btn-tertiary': element.isSelected}">
         <fa-icon [icon]="faSearch"></fa-icon>
       </button>
       <!-- boton favorito -->
-      <button 
-        mat-fab 
-        (click)="toggleFavorite(element)" 
-        aria-label="Favorite" 
-        type="button" 
+      <button mat-fab (click)="toggleFavorite(element)" aria-label="Favorite" type="button"
         class="btn btn-secondary actions-button ml-2"
-        [ngClass]="{'btn-warning': element.isFavorite, 'btn-secondary': !element.isFavorite}"
-      >
+        [ngClass]="{'btn-warning': element.isFavorite, 'btn-secondary': !element.isFavorite}">
         <fa-icon [icon]="element.isFavorite ? faStar : faRegularStar"></fa-icon>
       </button>
     </td>
   </ng-container>
-  
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+<!-- spinner de loading -->
 <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
 
+<!-- mensaje error de busqueda -->
 <div *ngIf="noResults" class="alert alert-danger mt-4" role="alert">
   <span>
-    <b>Ups!</b> No hay resultados de búsqueda con
+    <b>Ups!</b> No search results with
   </span>
   <div class="d-grid">
     <span *ngIf="activeFilters.includes('name')">Name: {{ nameFilter }}</span>
@@ -73,5 +66,6 @@
     <span *ngIf="activeFilters.includes('gender')">Gender: {{ genderFilter }}</span>
     <span *ngIf="activeFilters.includes('status')">Status: {{ statusFilter }}</span>
   </div>
-  <p class="mb-0 mt-2"><span class="text-uppercase font-weight-bold">Importante:</span> Las búsquedas deben ser en inglés</p>
+  <p class="mb-0 mt-2"><span class="text-uppercase font-weight-bold">Importante:</span> Las búsquedas deben ser en
+    inglés</p>
 </div>

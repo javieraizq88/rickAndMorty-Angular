@@ -10,44 +10,52 @@
     --amarillo: #ffcc00;
     --verde: #51ff00;
     --warning: #94f963;
-    --warning-color_hover:#60a85f;
+    --warning-color_hover: #60a85f;
 }
 
-html, body { 
-    height: 100%; 
+html,
+body {
+    height: 100%;
 }
-body { 
-    margin: 0; 
+
+body {
+    margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color:  var(--gris) !important;
+    background-color: var(--gris) !important;
     color: white;
 }
 
 /* edicion Angular Material */
-.mdc-data-table__cell, .mdc-data-table__header-cell {
+.mdc-data-table__cell,
+.mdc-data-table__header-cell {
     padding: 0 0 0 0.7rem !important;
 }
-.mat-mdc-row, .mdc-data-table__content{
+
+.mat-mdc-row,
+.mdc-data-table__content {
     font-size: 0.8rem !important;
 }
+
 /* FIN edicion Angular Material */
 
-.d-grid{
+.d-grid {
     display: grid !important;
 }
 
-button{
+button {
     cursor: pointer !important;
 }
-  
+
 @media only screen and (max-width: 600px) {
     h1 {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-    h2{
+
+    h2 {
         font-size: 1.55rem;
     }
-    p{
+
+    p {
         font-size: 1rem;
     }
-  }
+}

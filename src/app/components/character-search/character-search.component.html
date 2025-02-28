@@ -2,15 +2,16 @@
   <div class="card-header">
     <h2 class="mb-0">Search Character</h2>
   </div>
-  
   <div class="row row-cols row-cols-md-4 mt-3">
     <div class="col d-flex justify-content-center">
+      <!-- buscador por nombre -->
       <mat-form-field>
         <mat-label>Name</mat-label>
         <input matInput [formControl]="nameFilter" />
       </mat-form-field>
     </div>
     <div class="col d-flex justify-content-center">
+      <!-- buscador por estado -->
       <mat-form-field>
         <mat-label>Status</mat-label>
         <mat-select [formControl]="statusFormControl" multiple>
@@ -21,12 +22,14 @@
       </mat-form-field>
     </div>
     <div class="col d-flex justify-content-center">
+      <!-- buscador por especie -->
       <mat-form-field>
         <mat-label>Species</mat-label>
         <input matInput [formControl]="speciesFilter" />
       </mat-form-field>
     </div>
     <div class="col d-flex justify-content-center">
+      <!-- buscador por genero -->
       <mat-form-field>
         <mat-label>Gender</mat-label>
         <input matInput [formControl]="genderFilter" />

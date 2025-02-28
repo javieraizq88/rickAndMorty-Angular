@@ -13,12 +13,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { CharacterSearchComponent } from './character-search/character-search.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CharacterFavoriteComponent } from './character-favorite/character-favorite.component';
 
 @NgModule({
   declarations: [
     CharacterListComponent,
     CharacterSearchComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    CharacterFavoriteComponent
   ],
   imports: [
     CommonModule,
@@ -45,8 +47,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatCheckboxModule,
     MatSelectModule,
     CharacterSearchComponent,
-    CharacterDetailsComponent
-
+    CharacterDetailsComponent,
+    CharacterFavoriteComponent,
   ]
 })
 export class SharedModule { }

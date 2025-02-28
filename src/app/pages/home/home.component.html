@@ -9,11 +9,7 @@
       </div>
       <div class="col-12 col-md-5">
         Favorites
-        <div *ngFor="let favorite of favoriteCharacters">
-          <p>
-            {{ favorite.name }}
-          </p>
-        </div>
+        <app-character-favorite [favoriteCharacters]="favoriteCharacters" (favoriteToggled)="onFavoriteToggled($event)"></app-character-favorite>
       </div>
     </div>
   </div>

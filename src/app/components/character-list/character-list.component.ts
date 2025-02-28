@@ -20,7 +20,7 @@ export class CharacterListComponent implements OnInit {
   selectedCharacter: Character | null = null;
 
   @ViewChild(MatSort) sort!: MatSort;
-  
+
   @Input() nameFilter: string = '';
   @Input() speciesFilter: string = '';
   @Input() genderFilter: string = '';
@@ -29,9 +29,9 @@ export class CharacterListComponent implements OnInit {
   noResults = false; // cuando no hay resultados de busqueda
   activeFilters: string[] = [];
   loading = false;
-  
-  constructor( private characterService: CharacterService ) { }
-  
+
+  constructor(private characterService: CharacterService) { }
+
   ngOnInit(): void {
     this.getCharacters(); // Carga los personajes iniciales
   }
@@ -40,7 +40,7 @@ export class CharacterListComponent implements OnInit {
   }
 
   getCharacters(): void {
-    this.loading = true; 
+    this.loading = true;
     this.activeFilters = [];
     if (this.nameFilter) this.activeFilters.push('name');
     if (this.speciesFilter) this.activeFilters.push('species');
@@ -48,26 +48,26 @@ export class CharacterListComponent implements OnInit {
     if (this.statusFilter && this.statusFilter.length > 0) this.activeFilters.push('status');
 
     this.characterService
-    .getCharacters(this.nameFilter, this.speciesFilter, this.genderFilter, this.statusFilter)
-    .pipe(
-      catchError(() => {
-        this.noResults = true;
-        this.dataSource.data = [];
-        this.loading = false; // loading en false en caso de error
-        return of({ results: [] });
-      })
-    )
-    .subscribe((data) => {
-      if (data && data.results) {
-        this.dataSource.data = data.results;
-        this.dataSource.sort = this.sort;
-        this.noResults = data.results.length === 0;
-      }
-      this.loading = false; // Establece loading en false después de recibir los resultados
-    });
+      .getCharacters(this.nameFilter, this.speciesFilter, this.genderFilter, this.statusFilter)
+      .pipe(
+        catchError(() => {
+          this.noResults = true;
+          this.dataSource.data = [];
+          this.loading = false; // loading en false en caso de error
+          return of({ results: [] });
+        })
+      )
+      .subscribe((data) => {
+        if (data && data.results) {
+          this.dataSource.data = data.results;
+          this.dataSource.sort = this.sort;
+          this.noResults = data.results.length === 0;
+        }
+        this.loading = false; // Establece loading en false después de recibir los resultados
+      });
   }
 
-  // $$$ boton favorito 
+  // $$$ botones favorito y saberMas
   @Output() favoriteToggled = new EventEmitter<Character>();
   faSearch = faSearch;
   faStar = faStar;

@@ -1,53 +1,50 @@
 <div *ngIf="character">
-    <span class="d-flex justify-content-center mb-4 contenedor-img">
-      <img [src]="character.image" alt="Imagen de {{character.name}}" />
-    </span>
-<div class="row">
-  <div class="col-12 col-md-6 pr-0">
-    <h4 class="card1">General Data</h4>
-    <p>Name: {{character.name}}</p>
-    <p>Status: {{character.status}}</p>
-    <p>Species: {{character.species}}</p>
-    <p>Gender: {{character.gender}}</p>
-  </div>
-  <div class="col-12 col-md-6 pr-0">
-    <h4 class="card2">Origen</h4>
-    <div *ngIf="origin">
-      <p>Name: {{origin.name}}</p>
-      <p>Type: {{origin.type}}</p>
-      <p>Location: {{origin.dimension}}</p>
-      <p>Another resident: {{originResident?.name || 'doesnt have'}}</p>
+  <span class="d-flex justify-content-center mb-4 contenedor-img">
+    <img [src]="character.image" alt="Imagen de {{character.name}}" />
+  </span>
+  <div class="row">
+    <div class="col-12 col-md-6 pr-0">
+      <h4 class="card1">General Data</h4>
+      <p>Name: {{character.name}}</p>
+      <p>Status: {{character.status}}</p>
+      <p>Species: {{character.species}}</p>
+      <p>Gender: {{character.gender}}</p>
     </div>
-    <div *ngIf="!origin">
-      <p>The residence is unknown</p>
-    </div>
-  </div>
-
-  <div class="col-12 col-md-6 mt-4 pr-0">
-    <h4 class="card3">Location</h4>
-    <div *ngIf="location">
-      <p>Name: {{location.name}}</p>
-      <p>Type: {{location.type}}</p>
-      <p>Dimention: {{location.dimension}}</p>
-      <p>Another resident: {{locationResident?.name || 'doesnt have'}}</p>
-    </div>
-    <div *ngIf="!location">
-      <p>The location is unknown</p>
-    </div>
-  </div>
-  <div class="col-12 col-md-6 mt-4 pr-0">
-    <h4 class="card4">Episode</h4>
-    <div *ngIf="episode">
-      <p>Name: {{episode.name}}</p>
-      <p>Air date: {{episode.air_date}}</p>
-      <p>Episode: {{episode.episode}}</p>
-    </div>
-    <div *ngIf="!episode">
-      <p>It doesn't appear in any episode</p>
+    <div class="col-12 col-md-6 pr-0">
+      <h4 class="card2">Origen</h4>
+      <div *ngIf="origin">
+        <p>Name: {{origin.name}}</p>
+        <p>Type: {{origin.type}}</p>
+        <p>Location: {{origin.dimension}}</p>
+        <p>Another resident: {{originResident?.name || 'doesnt have'}}</p>
+      </div>
+      <div *ngIf="!origin">
+        <p>The residence is unknown</p>
+      </div>
     </div>
 
+    <div class="col-12 col-md-6 mt-4 pr-0">
+      <h4 class="card3">Location</h4>
+      <div *ngIf="location">
+        <p>Name: {{location.name}}</p>
+        <p>Type: {{location.type}}</p>
+        <p>Dimention: {{location.dimension}}</p>
+        <p>Another resident: {{locationResident?.name || 'doesnt have'}}</p>
+      </div>
+      <div *ngIf="!location">
+        <p>The location is unknown</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 mt-4 pr-0">
+      <h4 class="card4">Episode</h4>
+      <div *ngIf="episode">
+        <p>Name: {{episode.name}}</p>
+        <p>Air date: {{episode.air_date}}</p>
+        <p>Episode: {{episode.episode}}</p>
+      </div>
+      <div *ngIf="!episode">
+        <p>It doesn't appear in any episode</p>
+      </div>
+    </div>
   </div>
-  </div>
-  
-  
-  </div>
+</div>

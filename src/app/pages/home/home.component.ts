@@ -29,11 +29,11 @@ export class HomeComponent {
     if (index === -1) {
       this.favoriteCharacters.push(character);
       character.isFavorite = true;
-      console.log('Personaje agregado a favoritos:', character.name); 
+      console.log('Personaje agregado a favoritos:', character.name);
     } else {
       this.favoriteCharacters.splice(index, 1);
       character.isFavorite = false;
-      console.log('Personaje eliminado de favoritos:', character.name); 
+      console.log('Personaje eliminado de favoritos:', character.name);
     }
   }
 }
