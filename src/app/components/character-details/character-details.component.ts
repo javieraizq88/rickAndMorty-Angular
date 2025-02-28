@@ -25,7 +25,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.character) {
-      console.log('Character Details:', this.character); 
+    // console.log('Character Details:', this.character); 
       this.getOrigin();
       this.getLocation();
       this.getEpisode();
