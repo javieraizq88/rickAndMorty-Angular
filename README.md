@@ -12,7 +12,6 @@ Este proyecto es responsivo
     typescript                      5.7.3
     zone.js                         0.15.0
 
-
 ## Librerias
     Angular Material
     Bootstrap
