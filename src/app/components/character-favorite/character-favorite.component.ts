@@ -18,7 +18,7 @@ export class CharacterFavoriteComponent {
   isCollapsed = true; // estado inicial del collapse
   faStar = faStar; // icono estrella
 
-  onFavoriteToggled(character: Character): void {
+  toggleFavorite(character: Character): void {
     const index = this.favoriteCharacters.findIndex(c => c.id === character.id);
     if (index === -1) {
       this.favoriteCharacters.push(character);
@@ -35,5 +35,4 @@ export class CharacterFavoriteComponent {
   selectCharacter(character: Character): void {
     this.characterSelected.emit(character); // Emite el evento cuando se hace clic
   }
-
 }

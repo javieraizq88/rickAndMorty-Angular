@@ -87,6 +87,7 @@ export class CharacterListComponent implements OnInit {
     }
     this.selectedCharacter = character;
     character.isSelected = !character.isSelected;
+    console.log('Personaje seleccionado:', this.selectedCharacter);
   }
 
   toggleFavorite(character: Character): void {

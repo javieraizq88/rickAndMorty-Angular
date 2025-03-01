@@ -35,7 +35,7 @@ import { FooterCounterComponent } from './footer-counter/footer-counter.componen
     ReactiveFormsModule,
     MatCheckboxModule,
     MatSelectModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   exports: [
     CharacterListComponent,

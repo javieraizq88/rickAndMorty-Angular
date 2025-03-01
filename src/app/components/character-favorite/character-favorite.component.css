@@ -28,7 +28,7 @@
 
 h2 {
     color: var(--gris);
-
+    font-weight: bolder;
 }
 
 .favorite-buttons-container {
