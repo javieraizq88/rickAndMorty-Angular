@@ -36,4 +36,7 @@ export class HomeComponent {
   //    console.log('Personaje eliminado de favoritos:', character.name);
     }
   }
+  onCharacterSelected(character: Character): void {
+    this.characterList.selectCharacter(character); // Actualiza selectedCharacter
+  }
 }

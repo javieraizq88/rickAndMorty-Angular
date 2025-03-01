@@ -13,6 +13,7 @@ import { faChevronDown, faChevronUp, faStar } from '@fortawesome/free-solid-svg-
 export class CharacterFavoriteComponent {
   @Input() favoriteCharacters: Character[] = [];
   @Output() favoriteToggled = new EventEmitter<Character>();
+  @Output() characterSelected = new EventEmitter<Character>(); // Emite el personaje seleccionado
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
   isCollapsed = true; // estado inicial del collapse
@@ -31,4 +32,9 @@ export class CharacterFavoriteComponent {
     }
     this.favoriteToggled.emit(character);
   }
+  
+  selectCharacter(character: Character): void {
+    this.characterSelected.emit(character); // Emite el evento cuando se hace clic
+  }
+  
 }
