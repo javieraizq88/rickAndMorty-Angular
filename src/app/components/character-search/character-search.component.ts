@@ -15,12 +15,12 @@ export class CharacterSearchComponent implements OnInit {
   statusForm: FormGroup; // Campo de búsqueda por Status
   statusFormControl: FormControl = new FormControl([]);
 
-  @Output() searchChanged = new EventEmitter<{ 
-    name: string, 
-    species: string, 
-    gender: string, 
-    status: string[] 
-  }> ();
+  @Output() searchChanged = new EventEmitter<{
+    name: string,
+    species: string,
+    gender: string,
+    status: string[]
+  }>();
 
   constructor(private fb: FormBuilder) {
     this.statusForm = this.fb.group({

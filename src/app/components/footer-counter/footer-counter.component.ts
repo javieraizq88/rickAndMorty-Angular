@@ -18,7 +18,7 @@ export class FooterCounterComponent implements OnChanges {
   ngOnChanges(): void {
     this.updateCounts();
   }
-  
+
   updateCounts(): void {
     this.speciesCounts = {};
     this.typeCounts = {};
@@ -34,7 +34,7 @@ export class FooterCounterComponent implements OnChanges {
 
     this.speciesKeys = Object.keys(this.speciesCounts);
     this.typeKeys = Object.keys(this.typeCounts);
-    console.log('Species Counts:', this.speciesCounts);
-    console.log('Type Counts:', this.typeCounts);
+    //  console.log('Species Counts:', this.speciesCounts);
+    //  console.log('Type Counts:', this.typeCounts);
   }
 }

@@ -40,9 +40,13 @@
         <fa-icon [icon]="faSearch"></fa-icon>
       </button>
       <!-- boton favorito -->
-      <button mat-fab (click)="toggleFavorite(element)" aria-label="Favorite" type="button"
+      <button 
         class="btn btn-noFavorite actions-button ml-2"
-        [ngClass]="{'btn-favorite': element.isFavorite, 'btn-noFavorite': !element.isFavorite}">
+        type="button"
+        mat-fab (click)="toggleFavorite(element)" 
+        aria-label="Favorite" 
+        [ngClass]="{'btn-favorite': element.isFavorite, 'btn-noFavorite': !element.isFavorite}"
+      >
         <fa-icon [icon]="element.isFavorite ? faStar : faRegularStar"></fa-icon>
       </button>
     </td>

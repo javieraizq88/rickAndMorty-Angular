@@ -6,9 +6,12 @@
     <div class="favorite-buttons-container">
       <div class="pb-4 mt-3 flex-nowrap overflow-auto">
         <span *ngFor="let favorite of favoriteCharacters">
-          <button type="button" class="btn btn-favorite mx-2" (click)="selectCharacter(favorite)"
+          <button 
+            class="btn btn-favorite mx-2" 
+            type="button" 
+            (click)="selectCharacter(favorite)"
           >
-         <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }} 
+            <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }}
           </button>
         </span>
       </div>
@@ -16,16 +19,34 @@
   </div>
 </div>
 <div class="d-grid d-md-none mx-4 mb-4 py-2">
-  <button class="btn btn-favorite__collapse" type="button" data-toggle="collapse" data-target="#collapseExample"
-    aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsed = !isCollapsed">
+  <button 
+    class="btn btn-favorite__collapse" 
+    type="button" 
+    data-toggle="collapse" 
+    data-target="#collapseFavorites"
+    aria-expanded="false" 
+    aria-controls="collapseFavorites" 
+    (click)="isCollapsed = !isCollapsed"
+  >
     <h2 class="mb-0">Favorite </h2>
     <fa-icon [icon]="isCollapsed ? faChevronDown : faChevronUp"></fa-icon>
   </button>
-  <div class="collapse" id="collapseExample" (show.bs.collapse)="isCollapsed = false"
-    (hide.bs.collapse)="isCollapsed = true">
-    <div class="bg-favorite__collapse" *ngFor="let favorite of favoriteCharacters">
-      <button type="button" class="btn btn-favorite" (click)="selectCharacter(favorite)">
-        <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }} 
+  <div 
+    class="collapse" 
+    id="collapseFavorites"
+    (show.bs.collapse)="isCollapsed = false"
+    (hide.bs.collapse)="isCollapsed = true"
+  >
+    <div 
+      class="bg-favorite__collapse" 
+      *ngFor="let favorite of favoriteCharacters"
+    >
+      <button 
+        class="btn btn-favorite" 
+        type="button" 
+        (click)="selectCharacter(favorite)"
+      >
+        <fa-icon [icon]="faStar"></fa-icon> {{ favorite.name }}
       </button>
     </div>
   </div>

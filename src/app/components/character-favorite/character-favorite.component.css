@@ -2,6 +2,7 @@
     .d-grid {
         display: grid;
     }
+
     .btn-favorite__collapse {
         background-color: var(--secondary-color);
         display: flex;
@@ -13,6 +14,7 @@
     .btn-favorite {
         margin: 0.5rem 3rem
     }
+
     .bg-favorite__collapse {
         background-color: var(--secondary-color);
         display: grid;
@@ -32,10 +34,9 @@ h2 {
 .favorite-buttons-container {
     overflow-x: auto;
     white-space: nowrap;
-  }
-  
-  .row.flex-nowrap {
+}
+
+.row.flex-nowrap {
     display: flex;
     flex-wrap: nowrap;
-  }
-  
+}

@@ -22,17 +22,17 @@ export class CharacterDetailsComponent implements OnInit {
   constructor(
     private locationService: LocationService,
     private episodeService: EpisodeService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     if (this.character) {
-    // console.log('Character Details:', this.character); 
+      // console.log('Character Details:', this.character); 
       this.getOrigin();
       this.getLocation();
       this.getEpisode();
     }
   }
-  
+
   getOrigin(): void {
     if (this.character?.origin.url) {
       this.locationService.getLocationByUrl(this.character.origin.url).subscribe(location => {

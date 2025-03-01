@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   humanCount: number = 0; // Contador de humanos
   allCharacters: Character[] = []; // Guarda la lista completa de personajes
 
-  constructor(private characterService: CharacterService) { } 
+  constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
     this.characterService.getCharacters().subscribe(data => {
@@ -45,11 +45,11 @@ export class HomeComponent implements OnInit {
     if (index === -1) {
       this.favoriteCharacters.push(character);
       character.isFavorite = true;
-    //  console.log('Personaje agregado a favoritos:', character.name);
+      //  console.log('Personaje agregado a favoritos:', character.name);
     } else {
       this.favoriteCharacters.splice(index, 1);
       character.isFavorite = false;
-  //    console.log('Personaje eliminado de favoritos:', character.name);
+      // console.log('Personaje eliminado de favoritos:', character.name);
     }
   }
 
@@ -62,11 +62,11 @@ export class HomeComponent implements OnInit {
   }
 
   updateCharacters(): void {
-     if (!this.nameFilter && !this.speciesFilter && !this.genderFilter && (!this.statusFilter || this.statusFilter.length === 0)) {
+    if (!this.nameFilter && !this.speciesFilter && !this.genderFilter && (!this.statusFilter || this.statusFilter.length === 0)) {
       // No hay filtros aplicados, mostrar todos los personajes
       this.characters = this.allCharacters;
     } else {
-      // Aplicar filtros
+      // Aplica filtros
       this.characters = this.allCharacters.filter(character => {
         let matchesFilter = true;
         if (this.nameFilter && !character.name.toLowerCase().includes(this.nameFilter.toLowerCase())) matchesFilter = false;

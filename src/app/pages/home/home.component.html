@@ -8,7 +8,8 @@
         <app-character-search (searchChanged)="onSearchChanged($event)"></app-character-search>
       </div>
       <div class="col-12 col-md-5">
-        <app-character-favorite [favoriteCharacters]="favoriteCharacters" (favoriteToggled)="onFavoriteToggled($event)" (characterSelected)="onCharacterSelected($event)"></app-character-favorite>
+        <app-character-favorite [favoriteCharacters]="favoriteCharacters" (favoriteToggled)="onFavoriteToggled($event)"
+          (characterSelected)="onCharacterSelected($event)"></app-character-favorite>
       </div>
     </div>
   </div>
@@ -19,11 +20,10 @@
       <!-- tabla -->
       <app-character-list 
         [nameFilter]="nameFilter" 
+        [statusFilter]="statusFilter" 
         [speciesFilter]="speciesFilter" 
         [genderFilter]="genderFilter"
-        [statusFilter]="statusFilter"
-        (favoriteToggled)="onFavoriteToggled($event)"
-        >
+        (favoriteToggled)="onFavoriteToggled($event)">
       </app-character-list>
     </div>
     <!-- detalles del personaje -->
