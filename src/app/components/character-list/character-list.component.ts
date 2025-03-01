@@ -30,6 +30,15 @@ export class CharacterListComponent implements OnInit {
   activeFilters: string[] = [];
   loading = false;
 
+    // $$$ botones favorito y saberMas
+    @Output() favoriteToggled = new EventEmitter<Character>();
+    faSearch = faSearch;
+    faStar = faStar;
+    faRegularStar = faRegularStar;
+
+      // $$$ contador
+  @Output() humanCountChanged = new EventEmitter<number>(); 
+    
   constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
@@ -48,7 +57,7 @@ export class CharacterListComponent implements OnInit {
     if (this.statusFilter && this.statusFilter.length > 0) this.activeFilters.push('status');
 
     this.characterService
-      .getCharacters(this.nameFilter, this.speciesFilter, this.genderFilter, this.statusFilter)
+    .getCharacters(this.nameFilter, this.speciesFilter, this.genderFilter, this.statusFilter)
       .pipe(
         catchError(() => {
           this.noResults = true;
@@ -62,17 +71,16 @@ export class CharacterListComponent implements OnInit {
           this.dataSource.data = data.results;
           this.dataSource.sort = this.sort;
           this.noResults = data.results.length === 0;
+
+          const humanCount = this.dataSource.data.filter(character => character.species === 'Human').length;
+          this.humanCountChanged.emit(humanCount); // Emite el valor
+          console.log('Cantidad de personajes Human:', humanCount);
         }
         this.loading = false; // Establece loading en false después de recibir los resultados
       });
   }
 
   // $$$ botones favorito y saberMas
-  @Output() favoriteToggled = new EventEmitter<Character>();
-  faSearch = faSearch;
-  faStar = faStar;
-  faRegularStar = faRegularStar;
-
   selectCharacter(character: Character): void {
     if (this.selectedCharacter) {
       this.selectedCharacter.isSelected = false;
@@ -85,4 +93,7 @@ export class CharacterListComponent implements OnInit {
     character.isFavorite = !character.isFavorite;
     this.favoriteToggled.emit(character);
   }
+
+  // $$$ contador
+
 }

@@ -14,13 +14,15 @@ import { CharacterSearchComponent } from './character-search/character-search.co
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CharacterFavoriteComponent } from './character-favorite/character-favorite.component';
+import { FooterCounterComponent } from './footer-counter/footer-counter.component';
 
 @NgModule({
   declarations: [
     CharacterListComponent,
     CharacterSearchComponent,
     CharacterDetailsComponent,
-    CharacterFavoriteComponent
+    CharacterFavoriteComponent,
+    FooterCounterComponent
   ],
   imports: [
     CommonModule,
@@ -49,6 +51,7 @@ import { CharacterFavoriteComponent } from './character-favorite/character-favor
     CharacterSearchComponent,
     CharacterDetailsComponent,
     CharacterFavoriteComponent,
+    FooterCounterComponent
   ]
 })
 export class SharedModule { }
