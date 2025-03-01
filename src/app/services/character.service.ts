@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CharacterService {
   private apiUrl = 'https://rickandmortyapi.com/api/character';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCharacters(name?: string, species?: string, gender?: string, status?: string[]): Observable<any> {
     let params = new HttpParams(); //  Construye los parámetros de la URL

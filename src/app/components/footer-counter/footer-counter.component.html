@@ -1,0 +1,18 @@
+<div class="footer-counter">
+    <div class="species-counts w-50">
+        <h3>Species Counts</h3>
+        <ul>
+            <li *ngFor="let species of speciesKeys">
+                {{ species }}: {{ speciesCounts [species] }}
+            </li>
+        </ul>
+    </div>
+    <div class="type-counts w-50">
+        <h3>Type Counts</h3>
+        <ul>
+            <li *ngFor="let type of typeKeys">
+                {{ type }}: {{ typeCounts [type] }}
+            </li>
+        </ul>
+    </div>
+</div>

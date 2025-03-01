@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent
-  }
+  },
+  { 
+    path: '**', // cualquier url, reenvia al home
+    redirectTo: '/', 
+    pathMatch: 'full', 
+  },
 ];
 
 @NgModule({

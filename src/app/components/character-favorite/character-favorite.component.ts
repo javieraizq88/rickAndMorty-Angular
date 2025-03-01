@@ -12,11 +12,11 @@ import { faChevronDown, faChevronUp, faStar } from '@fortawesome/free-solid-svg-
 export class CharacterFavoriteComponent {
   @Input() favoriteCharacters: Character[] = [];
   @Output() favoriteToggled = new EventEmitter<Character>();
-  isCollapsed = true; // estado inicial del collapse
-  // iconos
+  @Output() characterSelected = new EventEmitter<Character>(); // Emite el personaje seleccionado
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
-  faStar = faStar;
+  isCollapsed = true; // estado inicial del collapse
+  faStar = faStar; // icono estrella
 
   toggleFavorite(character: Character): void {
     const index = this.favoriteCharacters.findIndex(c => c.id === character.id);
@@ -32,4 +32,7 @@ export class CharacterFavoriteComponent {
     this.favoriteToggled.emit(character);
   }
 
+  selectCharacter(character: Character): void {
+    this.characterSelected.emit(character); // Emite el evento cuando se hace clic
+  }
 }

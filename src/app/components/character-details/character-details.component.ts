@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Character } from '../../interfaces/character';
 import { Location } from '../../interfaces/location';
 import { Episode } from '../../interfaces/episode';
@@ -21,17 +21,18 @@ export class CharacterDetailsComponent implements OnInit {
 
   constructor(
     private locationService: LocationService,
-    private episodeService: EpisodeService) { }
+    private episodeService: EpisodeService
+  ) { }
 
   ngOnInit(): void {
     if (this.character) {
-    // console.log('Character Details:', this.character); 
+      // console.log('Character Details:', this.character); 
       this.getOrigin();
       this.getLocation();
       this.getEpisode();
     }
   }
-  
+
   getOrigin(): void {
     if (this.character?.origin.url) {
       this.locationService.getLocationByUrl(this.character.origin.url).subscribe(location => {

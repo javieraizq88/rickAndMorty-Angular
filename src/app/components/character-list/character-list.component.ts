@@ -4,7 +4,7 @@ import { Character } from '../../interfaces/character';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { catchError, of } from 'rxjs';
-import { faSearch, faStar, faStarHalfAlt, faStar as faRegularStar } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faStar, faStar as faRegularStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-character-list',
@@ -29,6 +29,15 @@ export class CharacterListComponent implements OnInit {
   noResults = false; // cuando no hay resultados de busqueda
   activeFilters: string[] = [];
   loading = false;
+
+  // botones favorito y saberMas
+  @Output() favoriteToggled = new EventEmitter<Character>();
+  faSearch = faSearch;
+  faStar = faStar;
+  faRegularStar = faRegularStar;
+
+  // contador
+  @Output() humanCountChanged = new EventEmitter<number>();
 
   constructor(private characterService: CharacterService) { }
 
@@ -62,17 +71,16 @@ export class CharacterListComponent implements OnInit {
           this.dataSource.data = data.results;
           this.dataSource.sort = this.sort;
           this.noResults = data.results.length === 0;
+
+          const humanCount = this.dataSource.data.filter(character => character.species === 'Human').length;
+          this.humanCountChanged.emit(humanCount); // Emite el valor
+         // console.log('Cantidad de personajes Human:', humanCount);
         }
         this.loading = false; // Establece loading en false después de recibir los resultados
       });
   }
 
-  // $$$ botones favorito y saberMas
-  @Output() favoriteToggled = new EventEmitter<Character>();
-  faSearch = faSearch;
-  faStar = faStar;
-  faRegularStar = faRegularStar;
-
+  // botones favorito y saberMas
   selectCharacter(character: Character): void {
     if (this.selectedCharacter) {
       this.selectedCharacter.isSelected = false;
@@ -86,4 +94,5 @@ export class CharacterListComponent implements OnInit {
     character.isFavorite = !character.isFavorite;
     this.favoriteToggled.emit(character);
   }
+
 }
